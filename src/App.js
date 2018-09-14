@@ -42,7 +42,7 @@ class App extends Component {
     	);
 	}
 
-	// this class
+	// this calls props, created by map dispatch
 	simpleAction = (event) => {
     	this.props.simpleAction();
 	}
@@ -50,7 +50,7 @@ class App extends Component {
 }
 
 
-// state
+// all state becomes prop 
 const mapStateToProps = state => ({
 	...state
 });
@@ -60,5 +60,6 @@ const mapDispatchToProps = dispatch => ({
 	simpleAction: () => dispatch(SimpleAction())
 })
 
+// state + dispatch => prop
 export default connect(mapStateToProps, mapDispatchToProps)(App);
 
