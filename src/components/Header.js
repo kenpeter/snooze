@@ -4,7 +4,7 @@ export default class Header extends React.Component {
   render() {
     return (
         <div>
-       		header 
+       		<p className="ui center aligned segment">header with logo</p> 
     	</div>
   	);
   }

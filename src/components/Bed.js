@@ -13,9 +13,6 @@ import * as bedAction from '../actions/bedList';
 // react
 import React from 'react';
 
-// css
-import './Bed.css';
-
 class Bed extends React.Component {
 	componentWillMount() {
     	// mount, use sub action

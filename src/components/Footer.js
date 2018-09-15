@@ -4,7 +4,7 @@ export default class Footer extends React.Component {
   render() {
     return (
         <div>
-       		Footer 
+			<p className="ui center aligned segment">Developer name - current year</p> 
     	</div>
   	);
   }

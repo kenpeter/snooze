@@ -18,9 +18,6 @@ import configureStore from './store/configureStore';
 // history
 import { createBrowserHistory } from 'history';
 
-// css
-import './index.css';
-
 // app
 import App from './components/App';
 import SingleItem from './components/SingleItem';
