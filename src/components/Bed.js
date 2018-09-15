@@ -1,25 +1,46 @@
 // connect
 import {connect} from 'react-redux';
+
 // bind action
 import {bindActionCreators} from 'redux';
 
+// page table
+import SmartDataTable from 'react-smart-data-table';
+
 // action has many sub actions
 import * as bedAction from '../actions/bedList';
+
 // react
 import React from 'react';
+
+// css
+import './Bed.css';
 
 class Bed extends React.Component {
 	componentWillMount() {
     	// mount, use sub action
-    	this.props.bedAction.bedList('Lagoon');
+    	this.props.bedAction.bedList();
+	}
+
+	onRowClick = (event, { rowData, rowIndex, tableData }) => {
+  		// The following results should be identical
+  		console.log(rowData, tableData[rowIndex])
 	}
 
 	renderData() {
-
-		console.log(this.props.bedList);
+		let data = this.props.bedList;
 
 		return (
-			<p>bla</p>
+			<div>
+        		<SmartDataTable
+    				data={data}
+    				name='test-table'
+    				className='ui compact selectable table'
+    				sortable
+					perPage={100}
+					onRowClick={this.onRowClick}
+  				/>	
+			</div>
 		);
 
 	}
@@ -28,21 +49,22 @@ class Bed extends React.Component {
     	let output;
  
     	// data here
-    	if(this.props.bedList) {
+    	if(this.props.bedList.length !== 0) {
       		// call display
       		output = this.renderData();
-    	} else { 
+    	} else {
       		output = (
         		<div>
-          			loading....	
+          			<h3>loading....</h3>
         		</div>
       		);
     	}
     
     	return (
       		<div className="">
-        		<h3>bla...</h3>
+        		<h3>Header</h3>
         		{output}
+				<p>Footer</p>
       		</div>
     	);
   }

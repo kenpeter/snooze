@@ -9,13 +9,28 @@ function url() {
 
 // obj becomes arr 
 function buildArray(obj) {
-  let outArr = [];
-  Object.keys(obj).forEach((index) => {
-    let item = obj[index];
-    outArr.push(item);
-  });
+	let arr = [];
+	obj = obj['items'];
 
-  return outArr;
+	Object.keys(obj).forEach((index) => {
+		let item = obj[index];
+		let obj1 = {};
+
+		obj1.id = item.id; 	
+		obj1.sku = item.sku;
+		obj1.title = item.title;
+		obj1.current_price = item.current_price;
+		obj1.colour = item.colour;
+		obj1.updated_at = item.updated_at;
+		obj1.shopify_handle = item.shopify_handle;
+
+		arr.push(obj1);
+  	});
+
+	// test
+	//arr = arr.slice(0, 4);
+
+	return arr;
 }
 
 
@@ -45,9 +60,9 @@ export function bedList(colourFilter=null) {
 	
 			if(colourFilter === null) {	
 				// do nothing
-				res = data[0];
+				res = data;
 			} else {
-				res = data[0].filter((item) => {
+				res = data.filter((item) => {
 					if(item['colour'] === colourFilter)
 						return true;
 					else

@@ -5,8 +5,7 @@ import bedReducer from './bedReducer';
 
 // Combine with one reducer
 const rootReducer = combineReducers({
-	bedReducer,
-	dataTableReducer
+	bedReducer
 });
 
 // Return default root reducer
