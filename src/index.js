@@ -8,13 +8,13 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 // store
-import configureStore from './store';
+import configureStore from './store/configureStore';
 
 // css
 import './index.css';
 
 // app
-import App from './App';
+import App from './components/App';
 
 // service? 
 import registerServiceWorker from './registerServiceWorker';

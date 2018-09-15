@@ -1,14 +1,14 @@
-// import
-// combo re, redux
-import { combineReducers } from 'redux';
+// combo
+import {combineReducers} from 'redux';
 
-// my reducer
-import SimpleReducer from './SimpleReducer';
+import bedReducer from './bedReducer';
 
-// export
-// default
-// combo re
-// one of reducer
-export default combineReducers({
-	SimpleReducer
+// Combine with one reducer
+const rootReducer = combineReducers({
+	bedReducer,
+	dataTableReducer
 });
+
+// Return default root reducer
+export default rootReducer;
+
