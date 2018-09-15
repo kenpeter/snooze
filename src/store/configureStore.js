@@ -1,19 +1,23 @@
 // store, middle ware
-import {createStore, applyMiddleware} from 'redux';
+import {createStore, compose, applyMiddleware} from 'redux';
 // root reducer
 import rootReducer from '../reducers/rootReducer';
 // async
 import thunk from 'redux-thunk';
+import { connectRouter, routerMiddleware } from 'connected-react-router'
 
 // export func
-export default function configureStore() {
-	// create store
+export default function configureStore(history) {
+	let initialState = {};
+
 	return createStore(
-    	// all reducers
-    	rootReducer,
-        // tools
-    	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-        // async
-    	applyMiddleware(thunk)
+		connectRouter(history)(rootReducer),
+		initialState,
+		compose(
+    		applyMiddleware(
+				thunk,
+      			routerMiddleware(history)
+    		)
+  		)
   	);
 }

@@ -7,8 +7,16 @@ import ReactDOM from 'react-dom';
 // provider
 import { Provider } from 'react-redux';
 
+// route
+import { Route, Switch } from 'react-router'; 
+// connect
+import { ConnectedRouter } from 'connected-react-router';
+
 // store
 import configureStore from './store/configureStore';
+
+// history
+import { createBrowserHistory } from 'history';
 
 // css
 import './index.css';
@@ -19,15 +27,21 @@ import App from './components/App';
 // service? 
 import registerServiceWorker from './registerServiceWorker';
 
+const history = createBrowserHistory();
+
 // dom display
 // app
 // to root
 ReactDOM.render(
-	<Provider store={configureStore()}>
-		<App />
+	<Provider store={configureStore(history)}>
+    	<ConnectedRouter history={history}>
+        		<Switch>
+          			<Route exact path="/" component={App} />
+          			<Route render={() => (<div>Miss</div>)} />
+        		</Switch>
+    	</ConnectedRouter>
 	</Provider>,
 	document.getElementById('root')
-
 );
 
 // serivce?

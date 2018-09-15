@@ -27,8 +27,24 @@ class Bed extends React.Component {
   		console.log(rowData, tableData[rowIndex])
 	}
 
+	getDefinedProp = (data) => {
+		let buf=[];
+		for(let i=0; i<data.length; i++) {
+			let item = data[i];
+
+			let obj = {};
+			obj.id = item.id;
+			obj.title = item.title;
+			obj.sku = item.sku;
+			buf.push(obj);
+		}
+
+		return buf;
+	}
+
 	renderData() {
 		let data = this.props.bedList;
+		data = this.getDefinedProp(data);
 
 		return (
 			<div>
