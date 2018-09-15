@@ -23,7 +23,8 @@ function buildArray(obj) {
 		obj1.colour = item.colour;
 		obj1.updated_at = item.updated_at;
 		obj1.shopify_handle = item.shopify_handle;
-
+		obj1.material = item.material;
+			
 		arr.push(obj1);
   	});
 

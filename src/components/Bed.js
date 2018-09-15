@@ -24,7 +24,10 @@ class Bed extends React.Component {
 
 	onRowClick = (event, { rowData, rowIndex, tableData }) => {
   		//console.log(rowData, tableData[rowIndex]);
-		this.props.history.push('/single')
+		this.props.history.push({
+			pathname: '/single',
+  			state: { data: rowData }	
+		});
 	}
 
 	getDefinedProp = (data) => {
