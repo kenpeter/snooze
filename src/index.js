@@ -23,6 +23,7 @@ import './index.css';
 
 // app
 import App from './components/App';
+import SingleItem from './components/SingleItem';
 
 // service? 
 import registerServiceWorker from './registerServiceWorker';
@@ -36,7 +37,8 @@ ReactDOM.render(
 	<Provider store={configureStore(history)}>
     	<ConnectedRouter history={history}>
         		<Switch>
-          			<Route exact path="/" component={App} />
+          			<Route exact path="/" render={(props) => <App {...props} history={history} />} />
+					<Route exact path="/single" component={SingleItem} />
           			<Route render={() => (<div>Miss</div>)} />
         		</Switch>
     	</ConnectedRouter>

@@ -23,8 +23,8 @@ class Bed extends React.Component {
 	}
 
 	onRowClick = (event, { rowData, rowIndex, tableData }) => {
-  		// The following results should be identical
-  		console.log(rowData, tableData[rowIndex])
+  		//console.log(rowData, tableData[rowIndex]);
+		this.props.history.push('/single')
 	}
 
 	getDefinedProp = (data) => {
@@ -44,13 +44,13 @@ class Bed extends React.Component {
 
 	renderData() {
 		let data = this.props.bedList;
-		data = this.getDefinedProp(data);
+		//data = this.getDefinedProp(data);
 
 		return (
 			<div>
         		<SmartDataTable
     				data={data}
-    				name='test-table'
+    				name='data-table'
     				className='ui compact selectable table'
     				sortable
 					perPage={100}
@@ -78,9 +78,7 @@ class Bed extends React.Component {
     
     	return (
       		<div className="">
-        		<h3>Header</h3>
         		{output}
-				<p>Footer</p>
       		</div>
     	);
   }
