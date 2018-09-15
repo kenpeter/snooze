@@ -9,14 +9,13 @@ import Footer from './Footer';
 export default class SingleItem extends React.Component {
   render() {
 
-	console.log(this.props.location.state.data);
 	let d = this.props.location.state.data;
 
     return (
         <div>
 			<Header />
 			
-			<Link to={`/`} >Back</Link>
+			<Link to={`/`} >Back to list</Link>
 
 			<div>
         		<h3>{d.title}</h3>

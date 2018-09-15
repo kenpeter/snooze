@@ -45,12 +45,23 @@ class Bed extends React.Component {
 		return buf;
 	}
 
+	bedListClick = (e, colour=null) => {
+		this.props.bedAction.bedList(colour);
+	}
+
 	renderData() {
 		let data = this.props.bedList;
-		//data = this.getDefinedProp(data);
 
 		return (
 			<div>
+				<span>
+					<button onClick={(e) => this.bedListClick(e, null) }>all</button>
+					<button onClick={(e) => this.bedListClick(e, 'Lagoon')}>lagoon</button>
+					<button onClick={(e) => this.bedListClick(e, 'Latte')}>latte</button>
+					<button onClick={(e) => this.bedListClick(e, 'Willow')}>willow</button>
+					<button onClick={(e) => this.bedListClick(e, 'Charcoal')}>charcoal</button>
+				</span>
+
         		<SmartDataTable
     				data={data}
     				name='data-table'
